@@ -21,10 +21,16 @@ const getCustomCommit = () => {
     return `git commit -m"[Done] - ${new Date().toLocaleString()}"`;
 };
 
-for (let command of commands) {
-    if (command.includes("git commit")) {
-        command = getCustomCommit();
+const runAutomation = async () => {
+    for (let command of commands) {
+        if (command.includes("git commit")) {
+            command = getCustomCommit();
+        }
+        await runCommand(command);
+        await setTimeout(5000);
     }
-    await runCommand(command);
-    await setTimeout(5000);
-}
+    await setTimeout(50000); // wait for 50 seconds
+    runAutomation();
+};
+
+runAutomation();
