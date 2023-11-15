@@ -10,7 +10,7 @@ for (const command of commands) {
             return;
         }
         if (stderr) {
-            console.log(`${command} initialize`);
+            console.log(`${command} error: ${stderr}`);
             return;
         }
         console.log(`${stdout} initialize`);
