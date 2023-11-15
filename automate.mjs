@@ -5,7 +5,7 @@ const commands = ["git add .", "git commit -m'done'", "git push"];
 
 for (const command of commands) {
     if (command.includes("git commit")) {
-        console.log(command);
+        command.replace("done", new Date().toLocaleString());
     }
     exec(command, async (err, stdout, stderr) => {
         if (err) {
