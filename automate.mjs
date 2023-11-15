@@ -13,6 +13,7 @@ const runCommand = async (command) => {
             console.log(`${command} error: ${stderr}`);
             return;
         }
+        console.log(`${command} success: ${stdout}`);
     });
 };
 
