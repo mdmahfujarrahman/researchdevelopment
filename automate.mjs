@@ -3,10 +3,8 @@ import { setTimeout } from "timers/promises";
 
 const commands = ["git add .", "git commit -m'done'", "git push"];
 
-for (const command of commands) {
-    if (command.includes("git commit")) {
-        command.replace("done", new Date().toLocaleString());
-    }
+const runCommand = async (command) => {
+    console.log(command);
     exec(command, async (err, stdout, stderr) => {
         if (err) {
             console.log(`Error: ${err}`);
@@ -18,6 +16,18 @@ for (const command of commands) {
         }
         console.log(`${stdout} initialize`);
     });
+};
+
+const getCustomCommit = () => {
+    return `git commit -m"[Done] - ${new Date().toLocaleString()}"`;
+};
+
+for (let command of commands) {
+    console.log("after 5 seconds");
+    if (command.includes("git commit")) {
+        command = getCustomCommit();
+    }
+    await runCommand(command);
     await setTimeout(5000);
     console.log("wait 5 seconds");
 }
