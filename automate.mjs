@@ -11,9 +11,9 @@ for (const command of commands) {
         }
         if (stderr) {
             console.log(`${command} initialize`);
-
             return;
         }
+        console.log(`${stdout} initialize`);
     });
     await setTimeout(5000);
     console.log("wait 5 seconds");
