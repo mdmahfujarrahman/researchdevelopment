@@ -4,6 +4,9 @@ import { setTimeout } from "timers/promises";
 const commands = ["git add .", "git commit -m'done'", "git push"];
 
 for (const command of commands) {
+    if (command.includes("git commit")) {
+        console.log(command);
+    }
     exec(command, async (err, stdout, stderr) => {
         if (err) {
             console.log(`Error: ${err}`);
