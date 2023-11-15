@@ -11,13 +11,16 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@maxmind/geoip2-node": "^4.2.0",
         "axios": "^1.5.0",
         "country-list": "^2.3.0",
         "jspdf": "^2.5.1",
+        "maxmind": "^4.3.16",
         "node-fetch": "^3.3.2",
         "open": "^9.1.0",
         "p-queue": "^7.4.0",
         "puppeteer": "^21.1.1",
+        "xml2js": "^0.6.2",
         "ytdl-core": "^4.11.5"
     }
 }
