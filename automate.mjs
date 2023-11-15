@@ -13,7 +13,7 @@ const runCommand = async (command) => {
             console.log(`${command} error: ${stderr}`);
             return;
         }
-        console.log(`${command} success: ${stdout}`);
+        console.log(stdout);
     });
 };
 
@@ -22,11 +22,9 @@ const getCustomCommit = () => {
 };
 
 for (let command of commands) {
-    console.log("after 5 seconds");
     if (command.includes("git commit")) {
         command = getCustomCommit();
     }
     await runCommand(command);
     await setTimeout(5000);
-    console.log("wait 5 seconds");
 }
